@@ -50,7 +50,7 @@ function IngredientScreen({ navigation }) {
               }
             </View>
             <View style={[styles.IngredientType]}>
-            <Text style={[styles.h1, {flex:1}]}>Meat</Text>
+            <Text style={[styles.h1, {flex:1}]}>Vegetable</Text>
               {
                  vege.map((item, index) => (
                   <View style={[styles.subType, {flex:4}]}>
@@ -75,7 +75,7 @@ function IngredientScreen({ navigation }) {
               }
             </View>
             <View style={[styles.IngredientType]}>
-            <Text style={[styles.h1, {flex:1}]}>Meat</Text>
+            <Text style={[styles.h1, {flex:1}]}>Fruit</Text>
               {
                  frui.map((item, index) => (
                   <View style={[styles.subType, {flex:4}]}>

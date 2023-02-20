@@ -9,7 +9,18 @@ const Stack = createNativeStackNavigator();
 function CookStack () {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="Cook" component={CookScreen} />
+          <Stack.Screen name="Cook" component={CookScreen} 
+          options={{
+            title: 'Dishes',
+            headerStyle: {
+              backgroundColor: 'rgb(230, 175, 0)',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+          />
         </Stack.Navigator>
     )
 }

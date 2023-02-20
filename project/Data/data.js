@@ -43,3 +43,24 @@ export const frui = [
         num: "5"
     }
 ]
+
+export const dish_like = [
+    {
+        name: "Tomato Omelette",
+        ingredient: "Tomato, Egg",
+        img: "dish_to"
+    }
+]
+
+export const dish = [
+    {
+        name: "Fried Cabbage",
+        ingredient: "Cabbage",
+        img: "dish_fc"
+    },
+    {
+        name: "Pan-Fried Steak",
+        ingredient: "Steak",
+        img: "dish_pfs"
+    }
+]
