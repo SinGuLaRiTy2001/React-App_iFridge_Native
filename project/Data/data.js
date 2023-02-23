@@ -64,3 +64,15 @@ export const dish = [
         img: "dish_pfs"
     }
 ]
+
+export const favourite_dish = [
+    {
+        name: "Tomato Omelette",
+        img: "dish_to"
+    },
+    {
+        name: "Italian Pasta",
+        img: "dish_ItaPas"
+    }
+
+]

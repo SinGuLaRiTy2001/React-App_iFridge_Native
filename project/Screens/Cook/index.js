@@ -5,8 +5,7 @@ import MobilePic from '../../Image/MobilePic';
 import { dish_like } from '../../Data/data';
 import { dish } from '../../Data/data';
 
-function CookScreen({}) {
-
+function CookScreen() {
   browseLink = (dish_name) => {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
   
