@@ -6,4 +6,4 @@ This application can record the remaining ingredients including their names, cat
 
 The contributor in this project are: Yu Xia, Jian Wen, Xiangyu Liu, Tangyujun Han.
 
-![Figma Prototype](/Figma Prototype.png)
+![Figma Prototype](https://github.com/SinGuLaRiTy2001/ID2216_iFridge_Native/Figma Prototype.png)
