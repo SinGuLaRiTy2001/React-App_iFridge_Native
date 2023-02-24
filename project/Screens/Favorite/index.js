@@ -9,12 +9,12 @@ function FavoriteScreen({ navigation }) {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
   
     Linking.canOpenURL(URL).then(supported => {         
-      // if (!supported) {            
-      //     console.warn('Can\'t handle url: ' + URL);            
-      // } else {
-      //     return Linking.openURL(URL);            
-      // }        
-          
+      if (!supported) {            
+          console.warn('Can\'t handle url: ' + URL);            
+      } else {
+          return Linking.openURL(URL);            
+      }        
+      return Linking.openURL(URL);   
     }).catch(err => console.error('An error occurred',URL));
   }
 
@@ -22,19 +22,19 @@ function FavoriteScreen({ navigation }) {
       <View style={{ flex: 1, justifyContent: 'center'}}>
         <ScrollView>
           <Text style={[styles.h1, {flex:1}]}>Your favourites are all here.</Text>
-          <View Style={[styles.DishType]}>
+          <View Style={[styles.favDishType]}>
             {
               favourite_dish.map((item, index) => (
-                <View style={[styles.subTypeLike]}>
-                  <Image style={[styles.ItemImage]} source={MobilePic[item.img]} />
-                  <View style={[styles.contentstyle]}>
-                    <Text style={[styles.h2]}>{item.name}</Text>
-                    <View style={[styles.verticalStyle]}>
+                <View style={[styles.favsubTypeLike]}>
+                  <Image style={[styles.favItemImage]} source={MobilePic[item.img]} />
+                  <View style={[styles.favcontentstyle]}>
+                    <Text style={[styles.h2, {flex:5}]}>{item.name}</Text>
+                    <View style={[styles.verticalStyle,  {flex:1}]}>
                       <Pressable onPress={ () => browseLink(item.name)}>
                         <Image style={[styles.recipeIcon]} source={MobilePic["recipe_icon_like"]} />
                       </Pressable>
                     </View>
-                    <View style={[styles.verticalStyle]}>
+                    <View style={[styles.verticalStyle,  {flex:1}]}>
                     <TouchableOpacity onPress= {() => navigation.navigate('Share')}>
                       <Ionicons name='arrow-redo' size={35} color={'deepskyblue'}></Ionicons>
                     </TouchableOpacity>
@@ -58,16 +58,14 @@ function FavoriteScreen({ navigation }) {
 export default FavoriteScreen;
 
 const styles = StyleSheet.create({
-  DishType:{
-    height: 240,
+  favDishType:{
     width: Dimensions.get('window').width/1.02,
     margin: 10,
   },
   verticalStyle: {
     flexDirection: 'row',
-    marginRight: 10,
   },
-  subTypeLike: {
+  favsubTypeLike: {
     borderWidth: 1,
     borderColor: '#F26B8A',
     backgroundColor: 'white',
@@ -91,13 +89,13 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     flexDirection: 'column',
   },
-  contentstyle: {
+  favcontentstyle: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 10,
     marginLeft: 20,
   },
-  ItemImage: {
+  favItemImage: {
     height: 129,
     alignSelf: 'center',
     width: Dimensions.get('window').width - 22,
@@ -107,7 +105,6 @@ const styles = StyleSheet.create({
   recipeIcon: {
     width: 30,
     height: 40,
-    marginLeft: 90
   },
   h1: {
     fontSize: 25,
@@ -121,6 +118,5 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     marginTop: 10,
-    width: 170
   }
 })
