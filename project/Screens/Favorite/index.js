@@ -4,16 +4,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MobilePic from '../../Image/MobilePic';
 import { favourite_dish } from '../../Data/data';
 
-function FavoriteScreen() {
+function FavoriteScreen({ navigation }) {
   browseLink = (dish_name) => {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
   
     Linking.canOpenURL(URL).then(supported => {         
-      if (!supported) {            
-          console.warn('Can\'t handle url: ' + URL);            
-      } else {
-          return Linking.openURL(URL);            
-      }            
+      // if (!supported) {            
+      //     console.warn('Can\'t handle url: ' + URL);            
+      // } else {
+      //     return Linking.openURL(URL);            
+      // }        
+          
     }).catch(err => console.error('An error occurred',URL));
   }
 
@@ -34,7 +35,9 @@ function FavoriteScreen() {
                       </Pressable>
                     </View>
                     <View style={[styles.verticalStyle]}>
-                      <Image style={[styles.arrowIcon]} source={MobilePic["arrow_icon"]} />
+                    <TouchableOpacity onPress= {() => navigation.navigate('Share')}>
+                      <Ionicons name='arrow-redo' size={35} color={'deepskyblue'}></Ionicons>
+                    </TouchableOpacity>
                     </View>
 
                   </View>
@@ -61,8 +64,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   verticalStyle: {
-    flexDirection: 'column',
-    marginRight: 5
+    flexDirection: 'row',
+    marginRight: 10,
   },
   subTypeLike: {
     borderWidth: 1,
@@ -85,13 +88,14 @@ const styles = StyleSheet.create({
     height: 200,
     marginHorizontal: 10,
     marginVertical: 10,
-    borderRadius: 15
-
+    borderRadius: 15,
+    flexDirection: 'column',
   },
   contentstyle: {
-    flexDirection: 'column',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginVertical: 10,
-    marginLeft: 30,
+    marginLeft: 20,
   },
   ItemImage: {
     height: 129,
@@ -101,32 +105,22 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 15
   },
   recipeIcon: {
-    width: 40,
+    width: 30,
     height: 40,
-    resizeMode: "contain",
-    position: 'absolute',
-    left: 250,
-    top: -30
-  },
-  arrowIcon: {
-    width: 35,
-    height: 35,
-    resizeMode: "contain",
-    position: 'absolute',
-    left: 300,
-    top: -28
+    marginLeft: 90
   },
   h1: {
     fontSize: 25,
     marginHorizontal: 10,
     color: 'black',
     fontWeight: 'bold',
-    marginTop: 10
+    marginTop: 10,
   },
   h2: {
     fontSize: 20,
     color: 'black',
     fontWeight: 'bold',
-    marginTop: 10
+    marginTop: 10,
+    width: 170
   }
 })

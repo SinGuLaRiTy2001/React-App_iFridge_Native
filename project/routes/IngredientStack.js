@@ -2,7 +2,7 @@ import { Text, StyleSheet, View, Button, TouchableOpacity} from 'react-native'
 import React, { Component } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import IngredientScreen from '../Screens/Ingredient/index'
-import AddScreen from '../Screens/Add';
+import AddScreen from '../Screens/Add/index';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 

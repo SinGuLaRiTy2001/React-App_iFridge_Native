@@ -9,7 +9,18 @@ const Stack = createNativeStackNavigator();
 function CommunityStack () {
     return (
         <Stack.Navigator>
-          <Stack.Screen name="Community" component={CommunityScreen} />
+          <Stack.Screen name="Community" component={CommunityScreen}
+          options={{
+            title: 'Community',
+            headerStyle: {
+              backgroundColor: 'deepskyblue',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            }
+          }}
+           />
         </Stack.Navigator>
     )
 }

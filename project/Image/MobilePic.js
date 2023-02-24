@@ -5,13 +5,18 @@ export default{
     "four": require('../Image/Tomato.jpg'),
     "five": require('../Image/Apple.jpg'),
     "six": require('../Image/Orange.jpg'),
-
     "dish_to": require('../Image/Tomato_Omelette.jpg'),
     "dish_fc": require('../Image/Fried_Cabbage.jpg'),
     "dish_pfs": require('../Image/Pan_fried_Cabbage.jpg'),
     "dish_ItaPas": require('../Image/Italian_Pasta.png'),
+    "arrow_icon":require('../Image/right_arrow_icon.jpg'),
 
     "recipe_icon_like": require('../Image/recipe_yellow.png'),
     "recipe_icon": require('../Image/recipe_green.png'),
-    "arrow_icon":require('../Image/share.png'),
+    "dish_pi":require('../Image/like-food3.png'),
+    "dish_pasta":require('../Image/like-food2.png'),
+    "dish_Gri-steak":require('../Image/like-food4.png'),
+    "person1":require('../Image/person1.png'),
+    "person2":require('../Image/person2.png'),
+    "person3":require('../Image/person3.png'),
 }

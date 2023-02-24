@@ -1,20 +1,23 @@
-import { Text, StyleSheet, View, Button, TouchableOpacity, ScrollView, Dimensions, Image, Linking, Pressable} from 'react-native'
+import { Text, StyleSheet, View, Dimensions, ScrollView, Image, Pressable, Linking} from 'react-native'
 import React, { Component } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MobilePic from '../../Image/MobilePic';
-import { dish_like } from '../../Data/data';
-import { dish } from '../../Data/data';
+import { dish_like } from '../../Data/data'
+import { dish } from '../../Data/data'
 
 function CookScreen() {
+
   browseLink = (dish_name) => {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
+    //URL = 'https://hurrythefoodup.com'
   
     Linking.canOpenURL(URL).then(supported => {         
-      if (!supported) {            
-          console.warn('Can\'t handle url: ' + URL);            
-      } else {
-          return Linking.openURL(URL);            
-      }            
+      // if (!supported) {            
+      //     console.warn('Can\'t handle url: ' + URL);            
+      // } else {
+      //     return Linking.openURL(URL);            
+      // }   
+      return Linking.openURL(URL);         
     }).catch(err => console.error('An error occurred',URL));
   }
 
@@ -28,11 +31,13 @@ function CookScreen() {
                 <View style={[styles.subTypeLike]}>
                   <Image style={[styles.ItemImage]} source={MobilePic[item.img]} />
                   <View style={[styles.contentstyle]}>
+                    <View style={[styles.namestyle]}>
                     <Text style={[styles.h2]}>{item.name}</Text>
                     <Text>
                       <Ionicons name='cube' size={15} color={'grey'}></Ionicons>
                       {" Ingredient Needed: "+item.ingredient}
                     </Text>
+                    </View>
                     <Pressable onPress={ () => browseLink(item.name)}>
                       <Image style={[styles.RecipeIcon]} source={MobilePic["recipe_icon_like"]} />
                     </Pressable>
@@ -47,11 +52,13 @@ function CookScreen() {
                 <View style={[styles.subType]}>
                   <Image style={[styles.ItemImage]} source={MobilePic[item.img]} />
                   <View style={[styles.contentstyle]}>
+                  <View style={[styles.namestyle]}>
                     <Text style={[styles.h2]}>{item.name}</Text>
                     <Text>
                       <Ionicons name='cube' size={15} color={'grey'}></Ionicons>
                       {" Ingredient Needed: "+item.ingredient}
                     </Text>
+                    </View>
                     <Pressable onPress={ () => browseLink(item.name)}>
                       <Image style={[styles.RecipeIcon]} source={MobilePic["recipe_icon"]} />
                     </Pressable>
@@ -68,7 +75,6 @@ export default CookScreen;
 
 const styles = StyleSheet.create({
   DishType:{
-    height: 240,
     width: Dimensions.get('window').width/1.02,
     margin: 10,
   },
@@ -93,13 +99,19 @@ const styles = StyleSheet.create({
     height: 200,
     marginHorizontal: 10,
     marginVertical: 10,
-    borderRadius: 15
-
+    borderRadius: 15,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
   },
   contentstyle: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     marginVertical: 10,
     marginLeft: 30,
+    justifyContent: 'space-between',
+  },
+  namestyle: {
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
   },
   ItemImage: {
     height: 129,
@@ -112,9 +124,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     resizeMode: "contain",
-    position: 'absolute',
-    left: 290,
-    top: -40
+    marginRight: 20
   },
   h1: {
     fontSize: 25,

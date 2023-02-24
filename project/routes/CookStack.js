@@ -1,7 +1,7 @@
 import { Text, StyleSheet, View } from 'react-native'
 import React, { Component } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CookScreen from '../Screens/Cook';
+import CookScreen from '../Screens/Cook/index';
 
 
 const Stack = createNativeStackNavigator();

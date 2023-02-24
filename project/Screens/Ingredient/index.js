@@ -9,6 +9,13 @@ import { frui } from '../../Data/data';
 function IngredientScreen({ navigation }) {
 
   const [count, setCount] = React.useState(0);
+  const [count1, setCount1] = React.useState(0);
+  const [count2, setCount2] = React.useState(0);
+  const [count3, setCount3] = React.useState(0);
+  const [count4, setCount4] = React.useState(0);
+  const [count5, setCount5] = React.useState(0);
+ 
+
 
   React.useEffect(() => {
 
@@ -25,7 +32,7 @@ function IngredientScreen({ navigation }) {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ScrollView>
             <View style={[styles.IngredientType]}>
-               <Text style={[styles.h1, {flex:1}]}>Meat</Text>
+               <Text style={[styles.h1, {flex:2}]}>Meat</Text>
               {
                  meat.map((item, index) => (
                   <View style={[styles.subType, {flex:4}]}>
@@ -43,14 +50,38 @@ function IngredientScreen({ navigation }) {
                     </Text>
                     </View>
                     <View style={[styles.rowstyle]}>
-                    <Text>number</Text>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount1(count1+1)
+                      }else{
+                        setCount(count+1)
+                      }
+                      
+                    }}>
+                    <Ionicons name='add-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
+                    <View>
+                      {
+                        item.set ? (<Text style={[styles.content]}>{count}</Text>) : (<Text style={[styles.content]}>{count1}</Text>)
+                      }
+                    </View>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount1(count1-1)
+                      }else{
+                        setCount(count-1)
+                      }
+                      
+                    }}>
+                    <Ionicons name='remove-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
                     </View>
                   </View>
               ))
               }
             </View>
             <View style={[styles.IngredientType]}>
-            <Text style={[styles.h1, {flex:1}]}>Vegetables</Text>
+            <Text style={[styles.h1, {flex:2}]}>Vegatables</Text>
               {
                  vege.map((item, index) => (
                   <View style={[styles.subType, {flex:4}]}>
@@ -68,14 +99,38 @@ function IngredientScreen({ navigation }) {
                     </Text>
                     </View>
                     <View style={[styles.rowstyle]}>
-                    <Text>number</Text>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount3(count3+1)
+                      }else{
+                        setCount2(count2+1)
+                      }
+                      
+                    }}>
+                      <Ionicons name='add-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
+                    <View>
+                      {
+                        item.set ? (<Text style={[styles.content]}>{count2}</Text>) : (<Text style={[styles.content]}>{count3}</Text>)
+                      }
+                    </View>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount3(count3-1)
+                      }else{
+                        setCount2(count2-1)
+                      }
+                      
+                    }}>
+                    <Ionicons name='remove-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
                     </View>
                   </View>
               ))
               }
             </View>
             <View style={[styles.IngredientType]}>
-            <Text style={[styles.h1, {flex:1}]}>Fruits</Text>
+            <Text style={[styles.h1, {flex:2}]}>Fruits</Text>
               {
                  frui.map((item, index) => (
                   <View style={[styles.subType, {flex:4}]}>
@@ -93,7 +148,31 @@ function IngredientScreen({ navigation }) {
                     </Text>
                     </View>
                     <View style={[styles.rowstyle]}>
-                    <Text>number</Text>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount5(count5+1)
+                      }else{
+                        setCount4(count4+1)
+                      }
+                      
+                    }}>
+                      <Ionicons name='add-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
+                    <View>
+                      {
+                        item.set ? (<Text style={[styles.content]}>{count4}</Text>) : (<Text style={[styles.content]}>{count5}</Text>)
+                      }
+                    </View>
+                    <TouchableOpacity title='counter' onPress={()=>{
+                      if(item.counter==1){
+                        setCount5(count5-1)
+                      }else{
+                        setCount4(count4-1)
+                      }
+                      
+                    }}>
+                      <Ionicons name='remove-circle' size={25} color={'grey'}></Ionicons>
+                    </TouchableOpacity>
                     </View>
                   </View>
               ))
@@ -127,23 +206,28 @@ const styles = StyleSheet.create({
   },
   rowstyle: {
     flexDirection: 'column',
-    marginRight: 5
+    marginRight: 10,
+    
   },
   h1: {
-    fontSize: 21,
+    fontSize: 25,
     marginHorizontal: 10,
     color: 'black',
     fontWeight: 'bold'
   },
   ItemImage: {
-    height:95,
+    height:86,
     width: Dimensions.get('window').width/3.02,
     borderTopLeftRadius:15,
-    borderBottomLeftRadius: 15
+    borderBottomLeftRadius: 15,
+    resizeMode: 'contain',
   },
   h2: {
-    fontSize: 20,
+    fontSize: 21,
     color: 'grey',
     fontWeight: 'bold'
+  },
+  content: {
+    textAlign:'center'
   }
 })
