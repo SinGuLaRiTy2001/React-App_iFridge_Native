@@ -16,7 +16,6 @@ function IngredientScreen({ navigation }) {
   const [count5, setCount5] = React.useState(0);
  
 
-
   React.useEffect(() => {
 
     navigation.setOptions({
@@ -231,3 +230,4 @@ const styles = StyleSheet.create({
     textAlign:'center'
   }
 })
+

@@ -1,12 +1,20 @@
-import { Text, StyleSheet, View, Button, Dimensions, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView} from 'react-native'
+import { Text, StyleSheet, View, Button, Dimensions, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView, Alert} from 'react-native'
 import React, { Component } from 'react'
+import {Picker} from '@react-native-picker/picker';
+
 
 function AddScreen() {
 
   const [value, onChangeText] = React.useState('');
-  const [valuecategory, onChangeTextcategory] = React.useState('');
   const [valueamount, onChangeTextamount] = React.useState('');
   const [valuedate, onChangeTextdate] = React.useState('');
+  const [selectedLanguage, setSelectedLanguage] = React.useState();
+
+    var date = new Date();
+ 
+    var year = date.getFullYear().toString();
+    var month = (date.getMonth()+1).toString();
+    var day = date.getDate().toString();
 
 
     return (
@@ -31,12 +39,17 @@ function AddScreen() {
           </View>
           <View>
             <Text style={[styles.addname]}>Category</Text>
-            <TextInput
-              style={[styles.addinput]}
-              placeholder='Category'
-              onChangeText={text => onChangeTextcategory(text)}
-              value={valuecategory}
-            />
+            <View style={[styles.catagorybox]}>
+            <Picker
+              selectedValue={selectedLanguage}
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedLanguage(itemValue)
+              }>
+              <Picker.Item label="Vegetable (default)" value="vegatable" />
+              <Picker.Item label="Meat" value="meat" />
+              <Picker.Item label="Fruit" value="fruit" />
+            </Picker>
+            </View>
           </View>
           <View>
             <Text style={[styles.addname]}>Amount</Text>
@@ -49,12 +62,10 @@ function AddScreen() {
           </View>
           <View>
             <Text style={[styles.addname]}>Date</Text>
-            <TextInput
-              style={[styles.addinput]}
-              placeholder='Date'
-              onChangeText={text => onChangeTextdate(text)}
-              value={valuedate}
-            />
+            <View style={[styles.catagorybox]}>
+            <Text style={[styles.datacontent]}>{year+'-'+month+'-'+day}</Text>
+            </View>
+            
           </View>
           </View>
           <View style={[styles.addtype2, {flex:1}]}>
@@ -64,11 +75,16 @@ function AddScreen() {
               color='grey'
               onPress={()=>{
                 onChangeText('')
-                onChangeTextcategory('')
                 onChangeTextamount('')
-                onChangeTextdate('')
               }}/>
-              <Button title='Add it!' color='green'/>
+              <Button 
+                title='Add it!' 
+                color='green'
+                onPress={()=>{
+                  onChangeTextdate(year+'-'+month+'-'+day)
+                  Alert.alert('New ingredient has been added!')
+                }}
+                />
             </View>
           </View>
         </View>
@@ -81,7 +97,7 @@ export default AddScreen;
 
 const styles = StyleSheet.create({
   addbox: {
-    height: Dimensions.get('window').height-200,
+    //height: Dimensions.get('window').height-200,
     width: Dimensions.get('window').width-40,
     backgroundColor: 'white',
     shadowColor: 'grey',
@@ -94,13 +110,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 25,
     color: 'black',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    //marginTop: 20
   },
   addname:{
     fontSize: 18,
     color: 'black',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginTop: 20
   },
   addtype1: {
     flexDirection: 'column',
@@ -111,12 +129,15 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.5,
     flexDirection: 'column',
     justifyContent: 'space-evenly',
-    alignContent: 'space-around'
+    alignContent: 'space-around',
+    marginTop: 40,
+    marginBottom:20
   },
   addbutton: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignContent: 'space-around'
+    alignContent: 'space-around',
+    marginTop: 20
   },
   addinput: {
     height: 40, 
@@ -124,5 +145,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginLeft: 20,
     width: Dimensions.get('window').width-80,
+  },
+  catagorybox:{
+    height: 45, 
+    borderBottomColor: 'green',
+    borderBottomWidth: 1,
+    marginLeft: 20,
+    width: Dimensions.get('window').width-80,
+  },
+  datacontent: {
+    fontSize: 16,
+    color: 'black',
+    marginTop: 20,
+    marginLeft: 20
   }
 })

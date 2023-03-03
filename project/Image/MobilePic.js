@@ -5,6 +5,16 @@ export default{
     "four": require('../Image/Tomato.jpg'),
     "five": require('../Image/Apple.jpg'),
     "six": require('../Image/Orange.jpg'),
+    "LambPic": require('../Image/Lamb.png'),
+    "SteakPic": require('../Image/Steak.jpg'),
+    "PorkPic": require('../Image/Pork.jpg'),
+    "CabagePic": require('../Image/Cabage.jpg'),
+    "TomatoPic": require('../Image/Tomato.jpg'),
+    "PotatoPic": require('../Image/Potato.jpg'),
+    "ApplePic": require('../Image/Apple.jpg'),
+    "OrangePic": require('../Image/Orange.jpg'),
+    "GrapePic": require('../Image/Grape.jpg'),
+
     "dish_to": require('../Image/Tomato_Omelette.jpg'),
     "dish_fc": require('../Image/Fried_Cabbage.jpg'),
     "dish_pfs": require('../Image/Pan_fried_Cabbage.jpg'),
@@ -19,4 +29,7 @@ export default{
     "person1":require('../Image/person1.png'),
     "person2":require('../Image/person2.png'),
     "person3":require('../Image/person3.png'),
+    "share_p1":require('../Image/recipe1.jpg'),
+    "share_p2":require('../Image/recipe2.jpg'),
+    "share_p3":require('../Image/recipe3.jpg')
 }

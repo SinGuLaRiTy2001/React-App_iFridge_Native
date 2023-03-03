@@ -5,17 +5,18 @@ import MobilePic from '../../Image/MobilePic';
 import { dish_like } from '../../Data/data'
 import { dish } from '../../Data/data'
 
+
 function CookScreen() {
 
   browseLink = (dish_name) => {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
     
     Linking.canOpenURL(URL).then(supported => {         
-      if (!supported) {            
-          console.warn('Can\'t handle url: ' + URL);            
-      } else {
-          return Linking.openURL(URL);            
-      }   
+      // if (!supported) {            
+      //     console.warn('Can\'t handle url: ' + URL);            
+      // } else {
+      //     return Linking.openURL(URL);            
+      // }   
       return Linking.openURL(URL);         
     }).catch(err => console.error('An error occurred',URL));
   }

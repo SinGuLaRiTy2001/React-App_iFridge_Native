@@ -115,3 +115,24 @@ export const community = [
        liked:"Xiangyu Liu"
     }
 ]
+
+export const previouspic = [
+    {
+        name: "Tomato Omelette",
+        img: "share_p1",
+        date: "16 January",
+        link: "1630958021835739139"
+    },
+    {
+        name: "Beef Hamburger",
+        img: "share_p2",
+        date: "18 February",
+        link: "1630959809129226243"
+    },
+    {
+        name: "Vegetable Salad",
+        img: "share_p3",
+        date: "28 February",
+        link: "1630959938305417217"
+    },
+]

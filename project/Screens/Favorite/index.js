@@ -9,11 +9,11 @@ function FavoriteScreen({ navigation }) {
     var URL = 'https://hurrythefoodup.com/?s='+dish_name
   
     Linking.canOpenURL(URL).then(supported => {         
-      if (!supported) {            
-          console.warn('Can\'t handle url: ' + URL);            
-      } else {
-          return Linking.openURL(URL);            
-      }        
+      // if (!supported) {            
+      //     console.warn('Can\'t handle url: ' + URL);            
+      // } else {
+      //     return Linking.openURL(URL);            
+      // }        
       return Linking.openURL(URL);   
     }).catch(err => console.error('An error occurred',URL));
   }
